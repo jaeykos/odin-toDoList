@@ -1,0 +1,1 @@
+document.addEventListener("click",(a=>{"addNewProject"==a.target.id||"addProjectBtn"==a.target.id||"addNewTask"==a.target.id||"addTaskBtn"==a.target.id||"projectName"==a.target.className||"taskname"==a.target.className||"dueDate"==a.target.className||"taskRadioBtn"==a.target.className||a.target.className}));
