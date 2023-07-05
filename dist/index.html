@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src = "main.js" defer></script>
     <title>Document</title>
     <link rel="stylesheet" href="reset.css">    
     <link rel="stylesheet" href="style.css">    
@@ -13,14 +14,19 @@
     </div>
     <div id = "lowerSection">
         <div id="leftMenu">
+            <div class="projectItem" id="AllTasks">
+                <div class="projectIcon"></div>
+                <div class="projectItemName" >All Tasks</div>
+            </div>
             <div id="projectBrowser">
-                <div class="projectItem" id="AllTasks">
-                    <div class="projectIcon"></div>
-                    <div class="projectItemName" >All Tasks</div>
-                </div>
+                
                 <div class="projectItem" >
                     <div class="projectIcon"></div>
                     <div class="projectItemName" >Project 1</div>
+                    <div class="nameReplaceDiv">
+                        <input type="text" class="projectItemNameRepalceInput">
+                        <div id="projectNameOkay"></div>
+                    </div>
                     <div class="deleteProject"></div>
                 </div>
                 <div class="projectItem" >

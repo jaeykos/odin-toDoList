@@ -142,7 +142,6 @@ body{
     width: 100%;
     display: flex;
     flex-direction: row;
-    cursor: pointer;
 }
 #addProjectBtn{
     display: block;
@@ -166,6 +165,18 @@ body{
     height: 1.5rem;
     font-size: 1.1rem;
 }
+
+.nameReplaceDiv{
+    display: flex;
+    position:absolute;
+    margin-left: 2.5rem;
+    flex-direction: row;
+}
+
+.projectItemNameRepalceInput{
+    width: 10rem;
+}
+
 #projectNameOkay{
     background-image: url("../src/resources/check.svg");
     height: 1.8rem;
@@ -186,11 +197,10 @@ body{
     width: 100%;
     display: flex;
     flex-direction: row;
-    cursor: pointer;
 }
 
 #addTaskBtn{
-    display: none;
+    display: block;
     background-image: url("../src/resources/add.svg");
     height: 2rem;
     width: 2rem;
@@ -200,7 +210,7 @@ body{
 }
 
 #newTaskInputDiv{
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
     justify-items: flex-end;
