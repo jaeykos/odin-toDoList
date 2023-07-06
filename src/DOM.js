@@ -3,43 +3,61 @@ export default class DOM{
 
 
     static populateTodayDate(){
-
     }
-
-    static populateProjectNameHeader(){
-
-    }
-
     static populateProjectList(projects){
         for (const project of projects){
-            let parent =  projectBrowser;
-            let child = document.createElement("div");
-            child.className = "projectItem"
-            parent.appendChild(child);
+            let projectItem = document.createElement("div");
+            projectItem.className = "projectItem"
+            projectBrowser.appendChild(projectItem);
 
-            parent = child;
-            child = document.createElement("div");
-            child.className = "projectIcon"
-            parent.appendChild(child);
+            let projectIcon = document.createElement("div");
+            projectIcon.className = "projectIcon"
+            projectItem.appendChild(projectIcon);
 
-            child = document.createElement("div");
-            child.className = "projectItemName"
-            child.innerHTML = project.name;
-            parent.appendChild(child);
+            let projectItemName = document.createElement("div");
+            projectItemName.className = "projectItemName"
+            projectItemName.innerHTML = project.name;
+            projectItem.appendChild(projectItemName);
 
-            child = document.createElement("div");
-            child.className = "deleteProject"
-            parent.appendChild(child);
+            let nameReplaceDiv = document.createElement("div");
+            nameReplaceDiv.className = "nameReplaceDiv"
+            projectItem.appendChild(nameReplaceDiv);
 
+            let projectItemNameReplaceInput = document.createElement("input");
+            projectItemNameReplaceInput.className = "projectItemNameReplaceInput"
+            nameReplaceDiv.appendChild(projectItemNameReplaceInput);
 
+            let projectNameOkay = document.createElement("div");
+            projectNameOkay.className = "projectNameOkay"
+            nameReplaceDiv.appendChild(projectNameOkay);
 
-
+            let deleteProject = document.createElement("div");
+            deleteProject.className = "deleteProject"
+            projectItem.appendChild(deleteProject);
         }
     }
     static clearProjectNameInput(){
         projectNameInput.value = ""
     }
+    static showRenameProjectDiv(e){
+        e.target.nextElementSibling.style.display = "flex";
+        e.target.style.display = "none";
+        e.target.nextElementSibling.firstElementChild.focus()
+    }
+    static hideRenameProjectDiv(){
+        
+        document.querySelectorAll("div.nameReplaceDiv").forEach((div)=>div.style.display = "none");
+        document.querySelectorAll("div.projectItemName").forEach((div)=>div.style.display = "block");
 
+    }
+    static clearProjectRenameInput(){
+        let inputs = document.getElementsByClassName("projectItemNameReplaceInput")
+        
+        for (const input of inputs){
+            input.value = "";
+        }
+
+    }
     static clearProjectList(){
         while (projectBrowser.firstChild) {
             projectBrowser.firstChild.remove()
@@ -50,10 +68,30 @@ export default class DOM{
         taskNameInput.value = ""
     }
 
-    static populateTasks(){
-
+    static clearProjectHeader(){
+        projectHeader.innerHTML = ""
     }
 
+    static populateProjectHeader(projectName){
+        projectHeader.innerHTML = projectName;
+    }
+
+    static clearTasks(){
+        while (taskList.firstChild) {
+            taskList.firstChild.remove()
+        };
+    }
+
+    static populateTasks(projectObj){
+        for (const task of projectObj.tasks){
+            taskList.innerHTML = taskList.innerHTML +'<div class="taskDiv">' +
+            '<div class="circleIcon"></div>' +
+            `<div class="taskName">${task.name}</div>`+
+            `<div class="dueDate"> 2023.01.04</div>` +
+            '</div>'
+
+        }
+    }
 
     static showAddTaskInputs(){
 

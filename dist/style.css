@@ -42,7 +42,7 @@ body{
     color: #020617;
 }
 
-.projectItem{
+.projectItem, #allTasksDiv{
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -57,7 +57,7 @@ body{
 }
 
 
-.projectItem:hover{
+.projectItem:hover, #allTasksDiv:hover{
     opacity: 80%;
     background-color: #94a3b8;
 }
@@ -88,7 +88,7 @@ body{
     cursor: pointer;
 }
 
-#AllTasks{
+#allTasksDiv{
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -167,17 +167,17 @@ body{
 }
 
 .nameReplaceDiv{
-    display: flex;
+    display: none;
     position:absolute;
     margin-left: 2.5rem;
     flex-direction: row;
 }
 
-.projectItemNameRepalceInput{
+.projectItemNameReplaceInput{
     width: 10rem;
 }
 
-#projectNameOkay{
+#newProjectNameOkay, .projectNameOkay{
     background-image: url("../src/resources/check.svg");
     height: 1.8rem;
     width: 1.8rem;
@@ -187,7 +187,7 @@ body{
     background-color: #afb8c5;
 }
 
-#projectNameOkay:hover{
+#newProjectNameOkay:hover, .projectNameOkay:hover{
     background-color: #94a3b8;
 }
 
@@ -234,7 +234,7 @@ body{
     font-size: 1.1rem;
 }
 
-#taskNameOkay{
+#newTaskNameOkay{
     background-image: url("../src/resources/check.svg");
     height: 1.8rem;
     width: 1.8rem;
