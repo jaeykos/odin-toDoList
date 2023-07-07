@@ -82,15 +82,37 @@ export default class DOM{
         };
     }
 
-    static populateTasks(projectObj){
-        for (const task of projectObj.tasks){
-            taskList.innerHTML = taskList.innerHTML +'<div class="taskDiv">' +
-            '<div class="circleIcon"></div>' +
-            `<div class="taskName">${task.name}</div>`+
-            `<div class="dueDate"> 2023.01.04</div>` +
-            '</div>'
-
+    static populateTasks(currentProject){
+        if (currentProject.name == "All Tasks"){
+            
+            for (const task of currentProject.tasks){
+                if (task.project.name == "All Tasks"){
+                    taskList.innerHTML = taskList.innerHTML +'<div class="taskDiv">' +
+                    '<div class="circleIcon"></div>' +
+                    `<div class="taskName">${task.name}</div>`+
+                    `<div class="projectSubscript"></div>`+
+                    `<div class="dueDate"> ${task.dueDate.replaceAll("-",".")}</div>` +
+                    '</div>'
+                }else{
+                    taskList.innerHTML = taskList.innerHTML +'<div class="taskDiv">' +
+                    '<div class="circleIcon"></div>' +
+                    `<div class="taskName">${task.name}</div>`+
+                    `<div class="projectSubscript">${task.project.name}</div>`+
+                    `<div class="dueDate"> ${task.dueDate.replaceAll("-",".")}</div>` +
+                    '</div>'
+                }   
+            }
+            
+        }else {
+            for (const task of currentProject.tasks){
+                taskList.innerHTML = taskList.innerHTML +'<div class="taskDiv">' +
+                '<div class="circleIcon"></div>' +
+                `<div class="taskName">${task.name}</div>`+
+                `<div class="dueDate"> ${task.dueDate.replaceAll("-",".")}</div>` +
+                '</div>'
+            }
         }
+        
     }
 
     static showAddTaskInputs(){

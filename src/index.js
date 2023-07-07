@@ -6,21 +6,24 @@ import ErrorCheck from './ErrorCheck'
 
 const projects = [];
 const project1 = new Project("Project 1");
-project1.addTask(new Task("task 1", "2024-01-01" ));
-project1.addTask(new Task("task 2", "2024-01-01" ));
+project1.addTask(new Task("task 1", "2024-01-01", project1));
+project1.addTask(new Task("task 2", "2024-01-01", project1 ));
 projects.push(project1);
 
 const project2 = new Project("Project 2");
-project2.addTask(new Task("task 3", "2024-01-01" ));
-project2.addTask(new Task("task 4", "2024-01-01" ));
+project2.addTask(new Task("task 3", "2024-01-01", project2 ));
+project2.addTask(new Task("task 4", "2024-01-01", project2 ));
 projects.push(project2);
 
 const allTasks = new AllTasks()
+allTasks.repopulateTasks(projects)
+
+let currentProject = allTasks
 DOM.clearProjectList()
 DOM.populateProjectList(projects)
 
-let currentProject = allTasks
-allTasks.repopulateTasks(projects)
+DOM.clearTasks()
+DOM.populateTasks(currentProject)
 
 
 document.addEventListener("click",e =>{
@@ -103,16 +106,47 @@ document.addEventListener("click",e =>{
 
     else if (e.target == newTaskNameOkay){
         
-        ErrorCheck.alertIfStringEmpty(projectNameInput.value);
-        projects.push(new task(projectNameInput.value));
-        DOM.clearProjectList()
-        DOM.populateProjectList(projects)
-        DOM.clearProjectNameInput()
-        DOM.hideNewProjectDiv();
+        ErrorCheck.alertIfStringEmpty(taskNameInput.value);
+        if (currentProject.name == "All Tasks"){
+            allTasks.addTask(new Task(taskNameInput.value,dueDateInput.value, currentProject));
+        }else{
+            currentProject.addTask(new Task(taskNameInput.value, dueDateInput.value, currentProject));
+        }
+        allTasks.repopulateTasks(projects)
+        DOM.clearTasks();
+        DOM.populateTasks(currentProject)
+        DOM.clearTaskNameInput()
+        DOM.hideNewTaskDiv();
     }
     
     else if (e.target.className == "taskname"){}
-    else if (e.target.className == "dueDate"){}
+    else if (e.target.className == "circleIcon"){
+        let taskName = e.target.nextSibling.innerHTML;
+
+        if (currentProject.name == "All Tasks"){
+            let projectName =  e.target.nextSibling.nextSibling.innerHTML;
+            
+            if (projectName == ""){
+                let taskObj = allTasks.noProjectTasks.find(task => task.name == taskName);
+                allTasks.noProjectTasks.splice(allTasks.noProjectTasks.indexOf(taskObj),1);
+            }else{
+                let projectObj = projects.find(project => project.name == projectName);
+                let taskObj = projectObj.tasks.find(task => task.name == taskName);
+
+                projectObj.tasks.splice(projectObj.tasks.indexOf(taskObj),1)
+            }
+
+            
+        }else{
+            let taskObj = currentProject.tasks.find(task => task.name == taskName);
+            currentProject.tasks.splice(currentProject.tasks.indexOf(taskObj),1)
+        }
+        allTasks.repopulateTasks(projects);
+        DOM.clearTasks();
+        DOM.populateTasks(currentProject);
+
+
+    }
     else if (e.target.className == "taskRadioBtn"){}
     else if (e.target.className == "taskRadioBtn"){}
     else {}
