@@ -42,6 +42,12 @@ body{
     color: #020617;
 }
 
+.projectSubscript{
+    font-size: .8rem;
+    align-self: flex-end;
+    margin-left: .5rem;
+}
+
 .projectItem, #allTasksDiv{
     display: flex;
     flex-direction: row;
