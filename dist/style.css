@@ -86,7 +86,7 @@ body{
 
 .deleteProject{
     display: none;
-    background-image: url("../src/resources/x.svg");
+    background-image: url("./resources/x.svg");
     height: 1.5rem;
     width: 1.5rem;
     margin-left: auto;
@@ -172,7 +172,7 @@ body{
 }
 #addProjectBtn{
     display: block;
-    background-image: url("../src/resources/add.svg");
+    background-image: url("./resources/add.svg");
     height: 1.75rem;
     width: 1.75rem;
     margin-left: .78rem;
@@ -211,7 +211,7 @@ body{
 
 
 #newProjectNameOkay, .projectNameOkay, .taskReplaceNameOkay, .dueDateReplaceOkay{
-    background-image: url("../src/resources/check.svg");
+    background-image: url("./resources/check.svg");
     height: 1.8rem;
     width: 1.8rem;
     margin-left: .78rem;
@@ -234,7 +234,7 @@ body{
 
 #addTaskBtn{
     display: block;
-    background-image: url("../src/resources/add.svg");
+    background-image: url("./resources/add.svg");
     height: 2rem;
     width: 2rem;
     margin-left: 1rem;
@@ -268,7 +268,7 @@ body{
 }
 
 #newTaskNameOkay{
-    background-image: url("../src/resources/check.svg");
+    background-image: url("./resources/check.svg");
     height: 1.8rem;
     width: 1.8rem;
     min-width: 1.8rem;
