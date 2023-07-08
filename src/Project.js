@@ -1,4 +1,3 @@
-
 export default class Project {
     tasks = [];
     constructor(name){

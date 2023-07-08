@@ -134,14 +134,35 @@ body{
     margin-right: .5rem;
     cursor: pointer;
 }
-
+.taskNameDiv{
+    display: flex
+}
 .taskName{
-    
+    display: flex;
+}
+
+.taskNameReplaceDiv{
+    display: none;
+    flex-direction: row;
+    width: auto;
+}
+
+
+
+
+.dueDateDiv{
+    margin-left: auto;
 }
 
 .dueDate{
+    display: flex;
     margin-left: auto;
 }
+
+.dueDateReplaceDiv{
+    display: none;
+}
+
 #newProjectDiv{
     margin-top: .5rem;
     height: 2rem;
@@ -179,11 +200,17 @@ body{
     flex-direction: row;
 }
 
+
 .projectItemNameReplaceInput{
     width: 10rem;
 }
 
-#newProjectNameOkay, .projectNameOkay{
+.taskItemNameReplaceInput{
+    width: 10rem;
+}
+
+
+#newProjectNameOkay, .projectNameOkay, .taskReplaceNameOkay, .dueDateReplaceOkay{
     background-image: url("../src/resources/check.svg");
     height: 1.8rem;
     width: 1.8rem;
