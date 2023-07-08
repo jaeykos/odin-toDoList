@@ -127,7 +127,7 @@ body{
 }
 
 .circleIcon{
-    background-image: url("src/resources/circle.svg");
+    background-image: url("./src/resources/circle.svg");
     height: 1.7rem;
     width: 1.7rem;
     margin-left: 1rem;
